@@ -75,7 +75,7 @@ class SequenceManipulation {
       }
       // key === value {throw}
       if (arg.key === arg.value) {
-        throw "The result should be an error stating that jobs can’t depend on themselves.";
+        throw "Jobs can’t depend on themselves.";
       }
       return true;
     }
@@ -95,7 +95,7 @@ class SequenceManipulation {
     }
     if (isValidDependcany) {
       if (runtimeStack.includes(currentItem.value)) {
-        throw "The result should be an error stating that jobs can’t have circular dependencies.";
+        throw "Jobs can’t have circular dependencies.";
       }
       this.checkDependancy(this.getItemObjectByKey(currentItem.value), result, runtimeStack);
     } else {
